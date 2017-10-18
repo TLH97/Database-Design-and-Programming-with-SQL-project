@@ -1,0 +1,43 @@
+<!-- Created by TopStyle Trial - www.topstyle4.com -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="supercss.css">
+</head>
+
+<body>
+
+<?php
+include "conectare.php";
+$data1=$_GET["data1"];
+$data2=$_GET["data2"];
+$cmd="select m.id_masina,m.model, m.motor, m.an_fabricatie, v.data,v.id_comanda
+		from masini m, vanzari v
+		where m.id_masina=v.id_masina and v.data between '$data1' and '$data2'";
+		$sql=mysqli_query($link,$cmd) or die ("Nu pot afisa vanzarile!");
+		while($rand=mysqli_fetch_array($sql))
+		{
+		?>
+		<table>
+<tr><th>Id masina</th><th>Model</th><th>Motor</th><th>An fabricatie</th><th>Data comenzii</th><th>Id comanda</th></tr>
+		<?php
+		echo "<tr><td>$rand[0]</td><td>$rand[1]</td><td>$rand[2]</td><td>$rand[3]</td><td>$rand[4]</td><td>$rand[5]</td></tr>";
+		$cmd2="select c.denumire, c.cantitate, c.pret, c.cantitate*c.pret from elemente_comenzi c, vanzari v
+		where c.id_comanda=$rand[5] and v.id_comanda=c.id_comanda ";
+		$sql2=mysqli_query($link,$cmd2) or die("Nu pot afisa elemenetele comenzii!");
+		?>
+		<table>
+		<tr><th>Denumire componenta</th><th>Cantitate</th><th>Pret</th><th>Valoare</th></tr>
+		<?php
+		while($rand2=mysqli_fetch_array($sql2))
+		echo "<tr><td>$rand2[0]</td><td>$rand2[1]</td><td>$rand2[2]</td><td>$rand2[3]</td></tr>";
+		?>
+		</table>
+		<?php
+		}
+?>
+</table>
+	<p></p>
+</body>
+</html>

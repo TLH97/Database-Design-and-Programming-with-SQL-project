@@ -1,0 +1,51 @@
+<html>
+<head>
+	<title>Caracteristicile autovehiculului</title>
+	<link rel="stylesheet" href="supercss.css">
+</head>
+<body bgcolor="#C8C8C8">  
+<form action="masina.php" method="GET"><br><br>
+Seria autovehiculului:<input type="text" name="seria"><br><br>
+Model:<select required name="model">
+<option value="Alfa Romeo">Alfa Romeo</option>
+<option value="Audi">Audi</option>
+<option value="BMW">BMW</option>
+<option value="Bentley">Bentley</option>
+<option value="Cadillac">Cadillac</option>
+<option value="Chevrolet">Chevrolet</option>
+<option value="Citroen">Citroen</option>
+<option value="Dacia">Dacia</option>
+<option value="Dodge">Dodge</option>
+<option value="Ferrari">Ferrari</option>
+<option value="Fiat">Fiat</option>
+<option value="Ford">Ford</option>
+<option value="Honda">Honda</option>
+<option value="Hyundai">Hyundai</option>
+<option value="Jaguar">Jaguar</option>
+<option value="Jeep">Jeep</option>
+<option value="Land Rover">Land Rover</option>
+<option value="Mazda">Mazda</option>
+<option value="Mercedez-Benz">Mercedez-Benz</option>
+<option value="Mitsubishi">Mitsubishi</option>
+<option value="Nissan">Nissan</option>
+<option value="Opel">Opel</option>
+<option value="Peugeot">Peugeot</option>
+<option value="Renault">Renault</option>
+<option value="Seat">Seat</option>
+<option value="Skoda">Skoda</option>
+<option value="Subaru">Subaru</option>
+<option value="Toyota">Toyota</option>
+<option value="Volkswagen">Volkswagen</option>
+<option value="Volvo">Volvo</option>
+</select><br><br>
+Carburant:<select required name="carburant">
+<option value="Benzina">Benzina</option>
+<option value="Diesel">Diesel</option>
+<option value="GPL">GPL</option>
+</select><br><br>
+Motor:<input type="text" name="motor"><br><br>
+Anul fabricatiei:<input type="number"  name="an" min="1990" max="2016"><br><br>
+<input type="submit" value="Trimite">
+</form>
+</body>
+</html>
